@@ -16,12 +16,12 @@ func Start(hostname, port string) error {
 
 	// Register middleware
 	r.Use(middleware.Logger)
-	r.Use(middleware.AllowContentType("x-www-form-urlencoded"))
+	r.Use(middleware.AllowContentType("multipart/form-data", ""))
 
 	// Register routes
 	r.Post("/", routes.CreateHandler)
-	r.Get("/:id", routes.RetrieveHandler)
-	r.Delete("/:id", routes.DeleteHandler)
+	r.Get("/{id}", routes.RetrieveHandler)
+	r.Delete("/{id}", routes.DeleteHandler)
 
 	// Start server
 	fmt.Println(fmt.Sprintf("BBin server listening on %s:%s", hostname, port))

@@ -29,3 +29,10 @@ func Get(key []byte) ([]byte, error) {
 
 	return value, err
 }
+
+// Delete removes an entry from the database
+func Delete(key []byte) error {
+	return DB.Update(func(txn *badger.Txn) error {
+		return txn.Delete(key)
+	})
+}
