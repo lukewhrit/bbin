@@ -13,7 +13,7 @@ $ cd bbin
 
 # Build and run docker image on port 80
 $ sudo docker build -t bbin .
-$ sudo docker run -d \ 
+$ sudo docker run -d \
 	--restart=always \
 	-e BBIN_HOSTNAME=0.0.0.0 \
 	-e BBIN_PORT=80 \
