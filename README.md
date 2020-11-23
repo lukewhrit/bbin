@@ -17,7 +17,6 @@ $ sudo docker run -d \
 	--restart=always \
 	-e BBIN_HOSTNAME=0.0.0.0 \
 	-e BBIN_PORT=80 \
-	-e 
 	-p 80:80 \
 	bbin
 ```
