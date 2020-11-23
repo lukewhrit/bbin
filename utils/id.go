@@ -2,13 +2,16 @@ package utils
 
 import (
 	"math/rand"
+
+	"github.com/lukewhrit/bbin/config"
 )
 
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
-var length = 8
 
 // GenerateID makes an ID `length` characters long
 func GenerateID() string {
+	length := config.Config.IDLength
+
 	b := make([]rune, length)
 
 	for i := range b {

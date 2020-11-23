@@ -5,7 +5,39 @@ Experimental self-hosted pastebin service written in Golang using Chi and Badger
 BBin is entirely self-contained and requires no external services or dependencies. It makes use of Badger &mdash; an embeddable, persistent and fast key-value (KV) database.
 
 ## Installation
+
+```sh
+# Clone repository from git remote
+$ git clone https://github.com/lukewhrit/bbin.git
+$ cd bbin
+
+# Build and run docker image on port 80
+$ sudo docker build -t bbin .
+$ sudo docker run -d \ 
+	--restart=always \
+	-e BBIN_HOSTNAME=0.0.0.0 \
+	-e BBIN_PORT=80 \
+	-e 
+	-p 80:80 \
+	bbin
+```
+
 ## Usage
+
+### Configuration
+
+You configure BBin solely via environment variables:
+
+* **`BBIN_HOSTNAME`** controls the hostname BBin serves on.
+* **`BBIN_PORT`** controls the port BBin serves on.
+* `BBIN_DB_LOCATION` controls the location of the Badger database directory. Default: `/tmp/badger`.
+* `BBIN_ID_LENGTH` dictates the length of document IDs. Default: `8`.
+* `BBIN_MAX_PAYLOAD_SIZE` dictates the maximum length of request entities in [mebibytes](https://en.wikipedia.org/wiki/Mebibyte). Default: `256 MiB`.
+
+Bolded keys are required.
+
+## API Endpoints
+
 ## Contributing
 
 1. [Fork it](https://lukewhrit/bbin/fork).

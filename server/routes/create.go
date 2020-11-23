@@ -1,8 +1,10 @@
 package routes
 
 import (
+	"math"
 	"net/http"
 
+	"github.com/lukewhrit/bbin/config"
 	"github.com/lukewhrit/bbin/database"
 	"github.com/lukewhrit/bbin/utils"
 )
@@ -11,7 +13,10 @@ import (
 func CreateHandler(w http.ResponseWriter, r *http.Request) {
 	// Parse multipart/form-data body value
 	// The maximum body size is 268435456 B (256 MB)
-	if err := r.ParseMultipartForm(268435456); err != nil {
+	if err := r.ParseMultipartForm(
+		// Multiply MaxPayloadSize by 1024² to get value in bytes
+		int64(config.Config.MaxPayloadSize * math.Pow(1024, 2)),
+	); err != nil {
 		w.WriteHeader(http.StatusRequestEntityTooLarge)
 	}
 

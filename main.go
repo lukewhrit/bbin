@@ -1,26 +1,31 @@
 package main
 
 import (
+	"fmt"
 	"log"
-	"os"
 
+	"github.com/lukewhrit/bbin/config"
 	"github.com/lukewhrit/bbin/database"
 	"github.com/lukewhrit/bbin/server"
 )
 
-var (
-	hostname = os.Getenv("BBIN_HOSTNAME")
-	port     = os.Getenv("BBIN_PORT")
-)
-
 func init() {
+	if err := config.Load(); err != nil {
+		log.Fatal(err)
+	}
+
 	if err := database.Open(); err != nil {
 		log.Fatal(err)
 	}
 }
 
 func main() {
-	if err := server.Start(hostname, port); err != nil {
+	fmt.Println(config.Config)
+
+	if err := server.Start(
+		config.Config.HostName,
+		config.Config.Port,
+	); err != nil {
 		log.Fatal(err)
 	}
 
