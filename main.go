@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/lukewhrit/bbin/config"
@@ -20,8 +19,6 @@ func init() {
 }
 
 func main() {
-	fmt.Println(config.Config)
-
 	if err := server.Start(
 		config.Config.HostName,
 		config.Config.Port,
