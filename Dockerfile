@@ -1,9 +1,9 @@
 FROM golang:1.15.5-alpine3.12
 
-RUN mkdir /opt/bbin
+RUN mkdir /opt/sojourner
 
-COPY . /opt/bbin
-WORKDIR /opt/bbin
+COPY . /opt/sojourner
+WORKDIR /opt/sojourner
 
 # GCC is required for cgo support in DataDog/zstd
 RUN apk add --no-cache build-base
@@ -12,7 +12,7 @@ RUN apk add --no-cache build-base
 RUN go mod download
 
 # Build the binary
-RUN go build --ldflags "-s -w" -o bin/bbin ./
+RUN go build --ldflags "-s -w" -o bin/sojourner ./
 
 # Run the generated binary
-CMD ["/opt/bbin/bin/bbin"]
+CMD ["/opt/sojourner/bin/sojourner"]

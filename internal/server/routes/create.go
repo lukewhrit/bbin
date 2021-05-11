@@ -4,9 +4,9 @@ import (
 	"math"
 	"net/http"
 
-	"github.com/lukewhrit/bbin/config"
-	"github.com/lukewhrit/bbin/database"
-	"github.com/lukewhrit/bbin/utils"
+	"github.com/lukewhrit/sojourner/internal/config"
+	"github.com/lukewhrit/sojourner/internal/database"
+	"github.com/lukewhrit/sojourner/internal/utils"
 )
 
 // CreateHandler is the HTTP handler for the create document endpoint

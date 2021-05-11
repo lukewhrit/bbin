@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi"
-	"github.com/lukewhrit/bbin/database"
+	"github.com/lukewhrit/sojourner/internal/database"
 )
 
 // RetrieveHandler is the HTTP handler for the create document endpoint

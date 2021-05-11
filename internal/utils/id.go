@@ -3,7 +3,7 @@ package utils
 import (
 	"math/rand"
 
-	"github.com/lukewhrit/bbin/config"
+	"github.com/lukewhrit/sojourner/internal/config"
 )
 
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
@@ -27,9 +27,5 @@ func IsID(id string) bool {
 	//  1. ID is 8 characters long
 	//  2. ID contains only characters in `letters`
 
-	if len(id) == 8 {
-		return true
-	}
-
-	return false
+	return len(id) == 8
 }

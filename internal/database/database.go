@@ -2,7 +2,7 @@ package database
 
 import (
 	badger "github.com/dgraph-io/badger/v2"
-	"github.com/lukewhrit/bbin/config"
+	"github.com/lukewhrit/sojourner/internal/config"
 )
 
 // DB represents an open connection to the Badger database

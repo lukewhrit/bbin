@@ -1,4 +1,4 @@
-module github.com/lukewhrit/bbin
+module github.com/lukewhrit/sojourner
 
 go 1.15
 

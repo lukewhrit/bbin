@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"github.com/lukewhrit/bbin/config"
-	"github.com/lukewhrit/bbin/database"
-	"github.com/lukewhrit/bbin/server"
+	"github.com/lukewhrit/sojourner/internal/config"
+	"github.com/lukewhrit/sojourner/internal/database"
+	"github.com/lukewhrit/sojourner/internal/server"
 )
 
 func init() {

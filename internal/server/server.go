@@ -2,11 +2,12 @@ package server
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
-	"github.com/lukewhrit/bbin/server/routes"
+	"github.com/lukewhrit/sojourner/internal/server/routes"
 )
 
 // Start begins the server on the configured port
@@ -24,7 +25,7 @@ func Start(hostname, port string) error {
 	r.Delete("/{id}", routes.DeleteHandler)
 
 	// Start server
-	fmt.Println(fmt.Sprintf("BBin server listening on %s:%s", hostname, port))
+	log.Println(fmt.Sprintf("Sojourner server listening on %s:%s", hostname, port))
 
 	return http.ListenAndServe(fmt.Sprintf("%s:%s", hostname, port), r)
 }
